@@ -1,0 +1,63 @@
+.main-container {
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.uk-button.matsuri-iro {
+    border-color: #5abfb7 !important;
+}
+
+.fg-matsuri-iro {
+    color: #5abfb7 !important;
+}
+
+.bg-matsuri-iro {
+    color: #ffffff !important;
+    background-color: #5abfb7 !important;
+}
+
+.noised-background {
+    background: #ffffff url("/images/noise.png") center center !important;
+}
+
+.word-breaking-all {
+    word-break: break-all;
+}
+
+.uk-button.return-to-top {
+    margin-top: 50px;
+}
+
+.paper {
+    padding: 30px;
+    position: relative;
+}
+
+.paper,
+.paper::before,
+.paper::after {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.paper::before,
+.paper::after {
+    content: "";
+    position: absolute;
+    height: 95%;
+    width: 99%;
+}
+
+.paper::before {
+    right: 15px;
+    top: 0;
+    transform: rotate(-1deg);
+    z-index: -1;
+}
+
+.paper::after {
+    top: 5px;
+    right: -5px;
+    transform: rotate(1deg);
+    z-index: -2;
+}
+  

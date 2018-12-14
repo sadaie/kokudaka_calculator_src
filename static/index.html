@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja-jp">
+
+<head>
+    <title>石高算出機 by 家臣和歌集</title>
+    <meta charset="utf-8">
+    <meta name="description" content="家臣たちによる和歌">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@sadaie_p" />
+    <meta property="og:url" content="https://kokudaka.matsuri-hi.me/" />
+    <meta property="og:title" content="石高算出機 by 家臣和歌集" />
+    <meta property="og:description" content="あなたの石高を算出します" />
+    <meta property="og:image" content="https://matsuri-hi.me/card_image.png" />
+    <link rel="icon shortcut" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
+    <link rel="mask-icon" href="/favicon_black.svg" color="#5abfb7">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/css/uikit.min.css" />
+    <!-- UIkit JS -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/js/uikit-icons.min.js"></script>
+    <!-- custom CSS -->
+    <link rel="stylesheet" href="css/custom.css" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112914184-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112914184-7');
+    </script>
+</head>
+
+<body>
+    <div class="uk-container uk-container-small main-container">
+        <h2 class="uk-heading-primary uk-text-center uk-text-bold">石高算出機</h2>
+        <form id="main-form" class="uk-grid-small uk-form-stacked">
+            <div class="uk-width-1-1@s">
+                <label class="uk-form-label" for="form-stacked-text">
+                    お名前
+                    <span uk-icon="icon: question; ratio: 0.8" uk-tooltip="title: 結果の表示とTwitterへの投稿時にのみ使用します"></span>
+                </label>
+                <input id="name" class="uk-input" placeholder="例: 松平定家" type="text">
+            </div>
+            <div class="uk-width-1-1@s">
+                <label class="uk-form-label" for="form-stacked-text">
+                    親愛度
+                    <span uk-icon="icon: question; ratio: 0.8" uk-tooltip="title: ミリシタの劇場 > アイドル > アイドル詳細 > 徳川まつりを選択すると画面に表示されます"></span>
+                </label>
+                <div class="uk-form-cntrols">
+                    <input id="closeness" class="uk-input" placeholder="例: 100000" type="text">
+                </div>
+            </div>
+            <div class="uk-width-1-1@s">
+                <label class="uk-form-label" for="form-stacked-text">
+                    ファン数
+                    <span uk-icon="icon: question; ratio: 0.8" uk-tooltip="title: ミリシタの劇場 > アイドル > アイドル詳細 > 徳川まつりを選択すると画面に表示されます"></span>
+                </label>
+                <div class="uk-form-cntrols">
+                    <input id="num-fans" class="uk-input" placeholder="例: 500000" type="text">
+                </div>
+            </div>
+            <div class="uk-width-1-1@s">
+                <label class="uk-form-label" for="form-stacked-text">
+                    BRAND NEW PERFORM@NCE!!!の姫ランキング順位
+                    <span uk-icon="icon: question; ratio: 0.8" uk-tooltip="title: ミリシタのナビ > プロフィール > イベント実績 > BRAND NEW PERFORM@NCE!!!を選択すると画面にアイドル別実績として表示されます"></span>
+                </label>
+                <div class="uk-form-controls">
+                    <input id="bnp-rank" class="uk-input" placeholder="例: 1000" name="post_id" type="text">
+                </div>
+            </div>
+        </form>
+        <div class="uk-width-1-1@s">
+            <input id="submit-button" class="uk-button uk-button-primary uk-width-1-1 uk-margin-top bg-matsuri-iro"
+                type="button" value="算出する" uk-toggle="target: #result-modal" onclick=";" />
+        </div>
+    </div>
+    <div class="uk-container uk-container-small result-container">
+        <p id="result" class="uk-margin"></p>
+    </div>
+
+    <div id="result-modal" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical noised-background">
+            <h2 id="result-title" class="uk-modal-title"></h2>
+            <p id="result-paragraph">ほ…なにかがおかしいのです…</p>
+            <p class="uk-text-right">
+                <button id="close-button" class="uk-button uk-button-default uk-modal-close" type="button">閉じる</button>
+            </p>
+        </div>
+    </div>
+
+    <div class="uk-container uk-container-expand bg-matsuri-iro">
+        <div class="uk-container uk-container-small">
+            <div class="uk-grid-small uk-child-width-expand@s uk-padding" uk-grid>
+                <ul class="uk-list uk-list-large">
+                    <li>
+                        <a class="bg-matsuri-iro" href="https://matsuri-hi.me/wakashu.html">
+                            家臣和歌集
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bg-matsuri-iro" href="https://matsuri-hi.me/pool.html">
+                            ひとまろの泉
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bg-matsuri-iro" href="https://gif.matsuri-hi.me/">
+                            御影集
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bg-matsuri-iro" href="https://rocoro.co">
+                            ロコちゃんの村
+                        </a>
+                    </li>
+                </ul>
+                <ul class="uk-list uk-list-large">
+                    <li>
+                        <a class="bg-matsuri-iro" href="https://matsuri-hi.me/wakashu/notice.html">
+                            まえがき（利用規約）
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bg-matsuri-iro" href="https://blog.matsuri-hi.me/">
+                            雑記帳（ブログ）
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bg-matsuri-iro" href="https://twitter.com/sadaie_p">
+                            管理者: @sadaie_p
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="kokudaka_calculator.js" async></script>
+</body>
+
+</html>
